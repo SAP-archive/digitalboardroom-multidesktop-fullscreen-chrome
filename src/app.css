@@ -1,0 +1,268 @@
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+p {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+ul {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+table, th, td {
+    border-collapse: collapse;
+}
+table {
+    margin-top: 3px;
+}
+th {
+    padding: 4px;
+}
+td {
+    padding: 4px;
+}
+.indent {
+    margin-left: 0px;
+}
+.content {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+.tabs {
+    height: 2em;
+}
+.tabButtons {
+    box-sizing: border-box;
+    float: left;
+}
+.tab {
+    cursor: pointer;
+    width: 100px;
+    height: 38px;
+    color: black;
+    background-color: rgb(220, 219, 223);
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-style: solid;
+    border-width: 1px;
+    font-size: larger;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    font-weight: normal;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: rgb(190, 190, 190);
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-left-color: rgb(190, 190, 190);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-right-color: rgb(190, 190, 190);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(190, 190, 190);
+    padding-right: 2px;
+}
+.activeTab {
+    font-weight: bold;
+    background-color: rgb(242, 242, 242);
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: rgb(190, 190, 190);
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-left-color: rgb(190, 190, 190);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-right-color: rgb(190, 190, 190);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(242, 242, 242);
+}
+.newTabButton {
+    box-sizing: border-box;
+    cursor: pointer;
+    width: 40px;
+    min-width: 40px;
+    height: 39px;
+    color: black;
+    background-color: rgb(220, 219, 223);
+    border-color: rgb(190, 190, 190);
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-style: solid;
+    border-width: 1px;
+    font-size: larger;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    font-weight: bold;
+    float: none;
+}
+.allTabToolbar {
+    box-sizing: border-box;
+    display: block;
+    padding-top: 2px;
+    background-color: rgb(207, 217, 227);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(190, 190, 190);
+}
+.toolbar {
+    display: inline-block;
+    width: 100%;
+    height: 4em;
+    background-color: rgb(242, 242, 242);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(190, 190, 190);
+}
+.toolbarUrl {
+    width: calc(100% - 6px);
+}
+.fillWidth {
+    width: calc(100%);
+}
+.fillHeight {
+    height: calc(100%);
+}
+.webViews {
+    position: absolute;
+    top: 8em;
+    left: 0px;
+    width: 100%;
+    height: calc(100% - 8em);
+}
+.webViewsFullScreen {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+.webView {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+.status {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    background: lightgray;
+    font-size: larger;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.busy {
+    cursor: wait;
+}
+.contentBlocker {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.25;
+    background-color: #017fb5;
+}
+.urlHint {
+    font-size: small;
+    display: block;
+    width: 100%;
+    text-align: right;
+}
+.window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    background: white;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    font-size: larger;
+}
+.windowButtons {
+    display: table;
+    margin: 0 auto;
+}
+.spacer {
+    display: block;
+    width: 22px;
+    height: 10px;
+}
+.button {
+    cursor: pointer;
+    width: 80px;
+    height: 38px;
+    color: #ffffff;
+    background-color: #017fb5;
+    border-color: #017fb5;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    font-size: larger;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    font-weight: bold;
+}
+.closeTabButton {
+    float: right;
+    cursor: pointer;
+    display: block;
+    width: 14px;
+    height: 14px;
+    background: url(icon_close.svg) no-repeat right center;
+    background-size: 100% 100%;
+    padding-top: 7px;
+}
+.homeButton {
+    cursor: pointer;
+    display: block;
+    width: 38px;
+    height: 38px;
+    background: url(icon_home.svg);
+    background-size: 28px 28px;
+    background-repeat: no-repeat;
+    background-position: 5px 5px;    
+}
+.fullScreenButton {
+    cursor: pointer;
+    display: block;
+    width: 38px;
+    height: 38px;
+    background: url(icon_fullscreen.svg);
+    background-size: 28px 28px;
+    background-repeat: no-repeat;
+    background-position: 5px 5px;    
+}
+.settingsButton {
+    cursor: pointer;
+    display: block;
+    width: 38px;
+    height: 38px;
+    background: url(icon_settings.svg);
+    background-size: 28px 28px;
+    background-repeat: no-repeat;
+    background-position: 5px 5px;    
+}
+.urlInput {
+    width: 450px;
+    border-width: 1px;
+}

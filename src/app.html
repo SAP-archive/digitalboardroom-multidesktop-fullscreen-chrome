@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<!--
+/**
+ * This is a Community Contribution utility and is not supported or maintained by SAP, so use this at your own risk!
+ *
+ * Views the web page to view in full screen across all desktops.
+ *
+ * @see main.js
+ * @see app.js
+ */
+  -->
+
+<head>
+    <script src="app.js"></script>
+    <link rel="stylesheet" type="text/css" href="app.css">
+</head>
+
+<body>
+    <!-- Web page -->
+    <div id="content" class="content">
+        <div id="allTabButtons" class="allTabToolbar">
+            <span id="tabButtons" class="tabButtons">
+            </span>
+            <span id="newTabButton" class="newTabButton" title="New tab (Ctrl + T)">+</span>
+        </div>
+        <div id="toolbar" class="toolbar toolbarBackground">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><div id="homeButton" class="homeButton" title="Open the home page (Alt + Home)"></div></td>
+                        <td class="fillWidth">
+                            <input id="urlInput" class="toolbarUrl" spellcheck="false">
+                        </td>
+                        <td><div id="fullscreenButton" class="fullScreenButton" title="Toggle full screen (F11)"></div></td>
+                        <td><div id="settingsButton" class="settingsButton" title="Settings (F10)"></div></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="webViews" class="webViews"></div>
+        <div id="contentBlocker" class="contentBlocker" style="visibility:hidden;"></div>
+    </div>
+
+    <!-- Popup windows -->
+    <div id="popupWindows">
+        <!-- Options -->
+        <div id="optionsWindow" class="window" style="visibility:hidden;">
+            <h1>Settings</h1>
+            <div class="indent">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Home&nbsp;Page&nbsp;URL:</td>
+                            <td>
+                                <input id="homePageUrlInput" class="urlInput" spellcheck="false">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <span class="urlHint"><em>Cannot open local files.<br>Instead try hosting the file using a web server.<br>For example: Web Server for Chrome app.</em></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <br/>
+            <div class="windowButtons">
+                <div id="optionsResetButton" class="button">Reset</div>
+                <span class="spacer">&nbsp;</span>
+                <div id="optionsOkButton" class="button">Ok</div>
+            </div>
+        </div>
+
+        <!-- Help -->
+        <div id="helpWindow" class="window" style="visibility:hidden;">
+            <h1>Help</h1>
+            <div class="indent">
+                <p>Shows a web page extended across one or more desktops without a menu bar, toolbar or title bar.</p>
+                <p>This is a Community Contribution utility and is not supported or maintained by SAP, so use this at your own risk!</p>
+                <p id="helpAppVersionInfo"></p>
+                <p id="helpDesktopInfo"></p>
+                <p>Keys:</p>
+                <ul>
+                    <li>Help (F1)</li>
+                    <li>Settings (F10)</li>
+                    <li>Toggle full screen (F11)</li>
+                    <li>Open the home page (Alt + Home)</li>
+                    <li>Reload the current page (F5)</li>
+                    <li>Stop the page loading (Esc)</li>
+                    <li>New tab (Ctrl + T)</li>
+                    <li>Next tab (Ctrl + Tab)</li>
+                    <li>Previous tab (Ctrl + Shift + Tab)</li>
+                    <li>Close tab (Ctrl + F4)</li>
+                    <li>Exit (Alt + F4)</li>
+                </ul>
+            </div>
+            <h2>Troubleshooting</h2>
+            <div class="indent">
+                <p>If Multi Desktop Full Screen for Chrome is not using all of your desktops:</p>
+                <ul>
+                    <li>Make sure the left-most desktop is set as main/primary</li>
+                    <li>Make sure when Google Chrome is open it fits within the left-most desktop</li>
+                </ul>
+                <p>It is best to use a desktop shortcut and then keep Google Chrome closed.</p>
+            </div>
+            <div class="windowButtons">
+                <div id="helpOkButton" class="button">Ok</div>
+            </div>
+        </div>
+        <div id="popupWindowBlocker" class="contentBlocker" style="visibility:hidden;"></div>
+    </div>
+
+    <!-- Splash screen -->
+    <div id="splashScreenWindow" class="window busy">
+        <h1>Multi Desktop Full Screen for Chrome</h1>
+        <p>Shows a web page extended across one or more desktops without a menu bar, toolbar or title bar.</p>
+        <p>This is a Community Contribution utility and is not supported or maintained by SAP, so use this at your own risk!</p>
+        <p>Press <b>F10</b> for settings, <b>F11</b> for full screen or <b>F1</b> for help.</p>
+    </div>
+
+    <!-- Status message -->
+    <div id="status" class="status"></div>
+</body>
+
+</html>
