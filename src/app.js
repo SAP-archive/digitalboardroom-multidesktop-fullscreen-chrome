@@ -168,13 +168,12 @@ document.addEventListener("DOMContentLoaded", function () {
         tabButton.innerHTML = "" + newTabId;
 
         // Uniqnue tab id (counter).
-        var ms = new Date().getTime();
         webview.id = "webView_" + newTabId;
         tabButton.id = "tab_" + newTabId;
         ++newTabId;
 
-        // Try to use different partition each time so we don't remember the logon info session.
-        webview.setAttribute("partition", ms);
+        // Use one partition to share the logon info session across all open tabs
+        webview.setAttribute("partition", "sharedsession");
 
         webview.className = "webView";
         

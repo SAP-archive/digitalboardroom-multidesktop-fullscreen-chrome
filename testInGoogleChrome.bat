@@ -7,7 +7,7 @@ REM  ---------------------------------------------------------------------------
 REM  Change to the app folder which is the folder this batch file is run from
 pushd "%~dp0%"
 
-set PKGNAME=multi-desktop-full-screen-for-chrome
+set PKGNAME=digitalboardroom-multidesktop-fullscreen-chrome
 set SRC=src
 set EXTFOLDER=%CD%\%SRC%
 
