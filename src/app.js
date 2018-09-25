@@ -162,7 +162,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 newTab(e.targetUrl);
             }
         });
-
+        
+        //Close the tab when the guest window tries to close itself
+		webview.addEventListener('close', function() {
+			// Close this tab.
+			var tab = findTab(webview.id);
+            closeTab(tab);
+		});
+        
         webview.setZoomMode("disabled"); // Do not allow zooming.
 
         tabButton.innerHTML = "" + newTabId;
@@ -183,8 +190,11 @@ document.addEventListener("DOMContentLoaded", function () {
         tabButtons.appendChild(tabButton);
         webviews.appendChild(webview);
 
-        // Switch to the new tab.
-        switchTab(webview.id);
+        // Switch to the new tab if it is not the SAML SSO pop-up tab.
+		// To Do: The condition can be further finetuned.
+        if (url.toLowerCase().indexOf('ina') == -1 || url.toLowerCase().indexOf('auth') == -1){
+			switchTab(webview.id);
+		}
         
         // Give focus to the URL bar so the user could start to type in a URL.
         urlInput.focus();
