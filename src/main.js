@@ -193,6 +193,13 @@ chrome.app.runtime.onLaunched.addListener(function () {
         });
     };
 
+    var alertKeyDownCall = function (request) {
+        chrome.runtime.sendMessage({
+            method: "keydownfrommain",
+            keyInfo: request.keyInfo
+        });
+    };
+
     // Callback handler from "app.js".
     chrome.runtime.onMessage.addListener(
         function (request, sender, sendResponse) {
@@ -223,6 +230,8 @@ chrome.app.runtime.onLaunched.addListener(function () {
                     var appWindow = getAppWindow();
                     appWindow.close();
                 } catch (ex) {}
+            } else if (request.method === 'keydown') {
+                alertKeyDownCall(request);
             }
 
             // Respond back to the message.

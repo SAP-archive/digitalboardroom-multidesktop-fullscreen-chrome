@@ -92,6 +92,13 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         tabButton.className = "tab";
+
+        webview.addContentScripts([{
+            name: 'keyMessaging',
+            matches: ["http://*/*", "https://*/*"],
+            js: { files: ['contentScript.js']},
+            run_at: 'document_end'
+        }]);
         
         // Keep track of the load status.
         webview.addEventListener("loadabort", function (e) {
@@ -288,6 +295,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Navigate in a tab to a URL.
     var navigateTo = function (tab, url) {
+		
         // If we are missing the URL prefix (which webpage.src needs default to "http"
         if (/^(?:file)?\:\/\//.test(url)) {
             // A file URL.
@@ -303,10 +311,12 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (!/^(?:http|https)?\:\/\//.test(url)) {
             // Does not start with "http" or "https" so default to "http".
             console.info("Navigate tab [" + tab.id + "] to: [added prefix: http://] " + url);
+			
             tab.webview.src = "http://" + url;
         } else {
             console.info("Navigate tab [" + tab.id + "] to: " + url);
-            tab.webview.src = url;
+            tab.webview.src = url;	
+			
         }
     }
     
@@ -482,8 +492,7 @@ document.addEventListener("DOMContentLoaded", function () {
         urlInput.focus();
     };
 
-    // Global keyboard handlers.
-    document.addEventListener("keydown", function (e) {
+    var onKeyHandler = function (e) {
         if (e.keyCode === KEY_F1) { // Help (F1)
             console.info("Toggle help window (F1)");
             toggleHelpWindow();
@@ -556,7 +565,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 switchTab(tab.webview.id);
             }
         }
-    });
+    };
+
+    // Global keyboard handlers.
+    document.addEventListener("keydown", onKeyHandler, true);
 
     // Callback handler from "main.js" to notify when the app options have been changed.
     chrome.runtime.onMessage.addListener(
@@ -571,7 +583,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // Update the options window.
                 homePageUrlInput.value = options.url;
-                
+				                
                 // If we have not initialized the app yet do it now.
                 if (appInit) {
                     // Create a new tab and navigate to the home page.
@@ -584,6 +596,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 helpDesktopInfo.innerHTML = "Number of desktops: " + appInfo.displayCount + ", desktop resolution: " + appInfo.displayWidth + " x " + appInfo.displayHeight + " pixels.";
                 // Update app version.
                 helpAppVersionInfo.innerHTML = "App version: " + appInfo.appVersion;
+            } else if (request.method === 'keydownfrommain') {
+                console.log(request);
+                onKeyHandler(request.keyInfo);
             }
 
             // Respond back to the message.
