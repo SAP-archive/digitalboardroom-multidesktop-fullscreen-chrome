@@ -5,9 +5,9 @@
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
     You may obtain a copy of the License at
-    
+
        http://www.apache.org/licenses/LICENSE-2.0
-    
+
     Unless required by applicable law or agreed to in writing, software
     distributed under the License is distributed on an "AS IS" BASIS,
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var contentBlockerLayer = document.getElementById("contentBlocker");
     var helpDesktopInfo = document.getElementById("helpDesktopInfo");
     var helpAppVersionInfo = document.getElementById("helpAppVersionInfo");
-    
+
     var tabButtons = document.getElementById("tabButtons");
     var toolbar = document.getElementById("toolbar");
     var homeButton = document.getElementById("homeButton");
@@ -99,19 +99,16 @@ document.addEventListener("DOMContentLoaded", function () {
             js: { files: ['contentScript.js']},
             run_at: 'document_end'
         }]);
-        
+
         // Keep track of the load status.
         webview.addEventListener("loadabort", function (e) {
             var tab = findTab(webview.id);
             if (tab) {
                 tab.hasLoadError = true;
                 tab.status = "Could not load, error (" + e.code + "): " + e.reason;
-                
-                // If this is the active tab show the status.
-                if (activeTab === tab) {
-                    status.innerHTML = tab.status;
-                }
             }
+            //Show the error in the console instead of showing in the status
+            console.error(tab.status);
         });
         // Page loading.
         webview.addEventListener("loadstart", function (e) {
@@ -169,14 +166,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 newTab(e.targetUrl);
             }
         });
-        
+
         //Close the tab when the guest window tries to close itself
 		webview.addEventListener('close', function() {
 			// Close this tab.
 			var tab = findTab(webview.id);
             closeTab(tab);
 		});
-        
+
         webview.setZoomMode("disabled"); // Do not allow zooming.
 
         tabButton.innerHTML = "" + newTabId;
@@ -190,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
         webview.setAttribute("partition", "sharedsession");
 
         webview.className = "webView";
-        
+
         tabCloseButton.className = "closeTabButton";
 
         tabButton.appendChild(tabCloseButton);
@@ -202,10 +199,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (url.toLowerCase().indexOf('ina') == -1 || url.toLowerCase().indexOf('auth') == -1){
 			switchTab(webview.id);
 		}
-        
+
         // Give focus to the URL bar so the user could start to type in a URL.
         urlInput.focus();
-        
+
         // Navigate to the URL.
         navigateTo(tab, url);
     }
@@ -239,7 +236,7 @@ document.addEventListener("DOMContentLoaded", function () {
             newTab(options.url);
         }
     };
-    
+
     // Switch to show a specific tab by id.
     var switchTab = function(tabId){
         // Activate the tab.
@@ -273,13 +270,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         return undefined;
     };
-    
+
     // Create a new tab.
     newTabButton.addEventListener("click", function (e) {
         console.info("New tab");
         newTab(options.url);
     });
-    
+
     // Keys.
     var KEY_ENTER = 13;
     var KEY_F1 = 112;
@@ -295,7 +292,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Navigate in a tab to a URL.
     var navigateTo = function (tab, url) {
-		
+
         // If we are missing the URL prefix (which webpage.src needs default to "http"
         if (/^(?:file)?\:\/\//.test(url)) {
             // A file URL.
@@ -311,15 +308,15 @@ document.addEventListener("DOMContentLoaded", function () {
         } else if (!/^(?:http|https)?\:\/\//.test(url)) {
             // Does not start with "http" or "https" so default to "http".
             console.info("Navigate tab [" + tab.id + "] to: [added prefix: http://] " + url);
-			
+
             tab.webview.src = "http://" + url;
         } else {
             console.info("Navigate tab [" + tab.id + "] to: " + url);
-            tab.webview.src = url;	
-			
+            tab.webview.src = url;
+
         }
     }
-    
+
     //--------------------
     // Open the home page.
     //--------------------
@@ -347,7 +344,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //-----------------------------------------------
     fullscreenButton.addEventListener("click", function (e) {
         toggleFullScreen();
-    });    
+    });
     var toggleFullScreen = function() {
         var visible = ! isVisible(toolbar);  // Toggle visible flag.
         var isFullScreen = visible == false;
@@ -398,7 +395,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
     settingsButton.addEventListener("click", function (e) {
-        toggleOptionsWindow();    
+        toggleOptionsWindow();
     });
     // Close options window and optionally save the settings.
     var closeOptionsWindow = function (save) {
@@ -583,7 +580,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 // Update the options window.
                 homePageUrlInput.value = options.url;
-				                
+
                 // If we have not initialized the app yet do it now.
                 if (appInit) {
                     // Create a new tab and navigate to the home page.
