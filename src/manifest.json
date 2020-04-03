@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Multi Desktop Full Screen for Chrome",
     "description": "Shows a web page extended across one or more desktops without a menu bar, toolbar or title bar.",
-    "version": "0.4",
+    "version": "0.5",
     "minimum_chrome_version": "51.0",
     "app": {
         "background": {

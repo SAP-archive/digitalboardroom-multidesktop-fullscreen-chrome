@@ -93,6 +93,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
         tabButton.className = "tab";
 
+        webview.setUserAgentOverride(webview.getUserAgent() + " SAPPlugin/" + appInfo.appVersion);
+
         webview.addContentScripts([{
             name: 'keyMessaging',
             matches: ["http://*/*", "https://*/*"],
