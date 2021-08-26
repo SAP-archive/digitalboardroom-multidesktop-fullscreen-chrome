@@ -75,4 +75,3 @@ It is best to use a desktop shortcut and then keep Google Chrome closed.
 3. Right-click on "Multi Desktop Full Screen for Chrome" and select "Remove from Chrome...".
 4. When asked **Remove "Multi Desktop Full Screen for Chrome"?** Select **Remove**.
 
-[![REUSE status](https://api.reuse.software/badge/github.com/SAP/digitalboardroom-multidesktop-fullscreen-chrome)](https://api.reuse.software/info/github.com/SAP/digitalboardroom-multidesktop-fullscreen-chrome)
