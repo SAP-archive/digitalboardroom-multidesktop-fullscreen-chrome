@@ -1,5 +1,7 @@
 # Multi Desktop Fullscreen for Chrome #
 
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP/digitalboardroom-multidesktop-fullscreen-chrome)](https://api.reuse.software/info/github.com/SAP/digitalboardroom-multidesktop-fullscreen-chrome)
+
 Multi Desktop Full Screen for Chrome shows a web page extended across one or more desktops without a menu bar, toolbar or title bar. Without this app, Google Chrome can only use full screen on a single desktop monitor.
 
 With this Chrome App we can use Windows 10 to extend the desktop (which is a standard way of doing things and does not require specific graphics cards) instead of using the graphics cards to make a combined desktop.
@@ -75,3 +77,6 @@ It is best to use a desktop shortcut and then keep Google Chrome closed.
 3. Right-click on "Multi Desktop Full Screen for Chrome" and select "Remove from Chrome...".
 4. When asked **Remove "Multi Desktop Full Screen for Chrome"?** Select **Remove**.
 
+## Licensing ##
+
+Copyright 2016-2021 SAP SE or an SAP affiliate company and digitalboardroom-multidesktop-fullscreen-chrome contributors. Please see our [LICENSE](LICENSE.txt) for copyright and license information. Detailed information including third-party components and their licensing/copyright information is available [via the REUSE tool](https://api.reuse.software/info/github.com/SAP/digitalboardroom-multidesktop-fullscreen-chrome).
